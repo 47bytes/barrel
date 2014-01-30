@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
-
 import os
 
-from utils import make_dir, INSTANCE_FOLDER_PATH
+from .utils.utils import make_dir, INSTANCE_FOLDER_PATH
 
 
 class BaseConfig(object):
@@ -18,6 +16,13 @@ class BaseConfig(object):
 
     DEBUG = False
     TESTING = False
+
+    # peewee database config
+    DATABASE = {
+        'name': 'dev.db',
+        'engine': 'peewee.SqliteDatabase',
+        'check_same_thread': False,
+    }
 
     ADMINS = ['youremail@yourdomain.com']
 

@@ -1,31 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
-
 import os
 
 from flask import Flask, request, render_template
 
 from .config import DefaultConfig
-from .user import User, user
-from .settings import settings
-from .frontend import frontend
-from .api import api
-from .admin import admin
-from .extensions import db, mail, cache, login_manager, oid
-from .utils import INSTANCE_FOLDER_PATH
+from .users import User, user_mod
+#from .settings import settings
+#from .frontend import frontend
+#from .api import api
+#from .admin import admin
+from .extensions import db, mail, login_manager, oid
+from .utils.utils import INSTANCE_FOLDER_PATH
 
 
 # For import *
 __all__ = ['create_app']
 
 DEFAULT_BLUEPRINTS = (
-    frontend,
-    user,
-    settings,
-    api,
-    admin,
+    user_mod,
 )
 
 
@@ -73,7 +67,7 @@ def configure_extensions(app):
     mail.init_app(app)
 
     # flask-cache
-    cache.init_app(app)
+    #cache.init_app(app)
 
     # flask-login
     login_manager.login_view = 'frontend.login'

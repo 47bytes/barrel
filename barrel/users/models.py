@@ -3,9 +3,9 @@
 import hashlib
 import hmac
 
-from barrel.core import models
+from ..core import models
 
-from barrel.utils import salt
+from ..utils.utils import salt
 
 class User(models.Model):
     username = models.CharField()
